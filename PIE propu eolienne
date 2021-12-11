@@ -1,0 +1,134 @@
+@author: stani
+"""
+
+
+
+def Type_bateau(Longueur,largeur,tonnage):
+    if blabla: 
+        return 1
+    if blalba2 :
+        return 2 
+    if blabla3:
+        return 3
+
+
+
+def Propu_flettner1(omega_rot=10, H=5, D=1, vitesse_relative=15): 
+    "calcul blabla"
+    return Force_flettner 
+
+def Propu_aile_aspi1(aspiration, forme, autres):
+    "calculblabla"
+    return Force_aile_aspi
+
+def Propu_aile_rigide1(longueur,corde):
+    "calculblabla"
+    return Force_aile_rigide
+
+def Propu_kite1(surface=1000):     " surface en m²"
+    "blahblah"
+    return Force_kite
+
+    
+
+def F_propu_flettner(type_bateau=1, direction_realtive=270, vitesse_relative=15):  "vitesse relative en kt"
+    if type_bateau=1:
+        omega_rot=10 "omega_rot en rad/s"
+        H=5 "en metre"
+        D=1 "diamètre du flettner"
+        return Force_flettner(omega_rot,H,D)
+    if type_bateau=2:
+        omega_rot=10 "omega_rot en rad/s"
+        H=5 "en metre"
+        D=1 "diamètre du flettner"
+        return Force_flettner(omega_rot,H,D)
+    if type_bateau=3:
+        omega_rot=10 "omega_rot en rad/s"
+        H=5 "en metre"
+        D=1 "diamètre du flettner"
+        return Force_flettner(omega_rot,H,D)
+
+def F_propu_aile_aspi:
+    if type_bateau=1:
+        aspiration=10 "m/s"
+        H=5 "en metre"
+        D=1 "diamètre de l'aile aspirée"
+        return Force_flettner(omega_rot,H,D)
+    if type_bateau=2:
+        aspiration=10 "m/s"
+        H=5 "en metre"
+        D=1 "diamètre de l'aile aspirée"
+        return Force_flettner(omega_rot,H,D)
+    if type_bateau=3:
+        aspiration=10 "m/s"
+        H=5 "en metre"
+        D=1 "diamètre de l'aile aspirée"
+        return Force_flettner(omega_rot,H,D)
+
+def F_propu_aile_rigide:
+     if type_bateau=1:
+        H=5 "en metre"
+        C=1 "code = 1metre"
+        return Force_aile_rigide(H,C)
+    if type_bateau=2:
+        H=5 "en metre"
+        C=1 "code = 1metre"
+        return Force_aile_rigide(H,C)
+    if type_bateau=3:
+        H=5 "en metre"
+        C=1 "code = 1metre"
+        return Force_aile_rigide(H,C)
+    
+def F_propu_kite:
+    if type_bateau=1:
+        S=500 "en m²"
+        return Force_kite(S)
+    if type_bateau=2:
+        S=500 "en m²"
+        return Force_kite(S)
+    if type_bateau=3:
+        S=500 "en m²"
+        return Force_kite(S)
+
+def trainee(Longueur,largeur,tonnage,vitesse_croisiere):
+    trainee=blabal
+    return trainee
+
+
+def Tronçon(route):
+    "renvoie une liste de [[vitesse_vent,direction_vent,distance,direction_bateau],...]"
+    return L_tronçons
+
+def Vent_relatif(vitesse_vent,direction_vent,vitesse_croisiere,direction_bateau): 
+    return (vent_relatif,direction_relative)
+
+
+def Economie_tronçon(t=L_tronçon,type_bateau,vitesse_croisiere,Pnecessaire,techno):
+    vent_relatif=Vent_relatif(t[0],t[1],vitesse_croisiere,t[3])
+    if techno=1:
+        Puissance_eco=F_propu_flettner(type_bateau,Vent_relatif[1],Vent_relatif[0])*vitesse_croisiere
+    elif techno=2:
+        Puissance_eco=F_propu_aile_aspi(type_bateau,Vent_relatif[1],Vent_relatif[0])*vitesse_croisiere
+    elif techno=3:
+        Puissance_eco=F_propu_aile_rigide(type_bateau,Vent_relatif[1],Vent_relatif[0])*vitesse_croisiere
+    elif techno=4:
+        Puissance_eco=F_propu_conso_specifiqueite(type_bateau,Vent_relatif[1],Vent_relatif[0])*vitesse_croisiere
+    temps_parcours=t[2]/vitesse_croisiere
+    carburant_necessaire=temps_parcours*puissance_necessaire*conso_specifique
+    carburant_eco=temps_parcours*Puissance_eco*conso_specifique
+    return carburant_eco
+
+
+def Algo_client_main(Longueur,largeur,tonnage,route,vitesse_croisiere): 
+    conso_specifique=1 "en tonne/h/MW de puissance propulsive, paramètre à calculer a partir de google"
+    puissance_necessaire=trainee(Longueur, largeur, tonnage, vitesse_croisiere)*vitesse_croisiere
+    type_bateau=Type_bateau(Longueur, largeur, tonnage)
+    
+    tronçons=Tronçon(route)
+    L=[]
+    for techno in range(1,5):
+        carburant_eco_total=0
+        for t in tronçons:
+            carburant_eco_total+=Economie_tronçon(type_bateau, vitesse_croisiere, Pnecessaire, techno)
+        L.append("carburant economise en tonne "+carburant_eco_total+" avec la techno "+techno)   
+    return L
